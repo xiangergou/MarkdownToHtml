@@ -1,0 +1,29 @@
+{
+  "name": "markdowntohtml",
+  "version": "1.0.0",
+  "description": "基于Node.js html生成。",
+  "main": "index.js",
+  "scripts": {
+    "build-pages": "node ./buildScript/index.js",
+    "start": "concurrently --kill-others \"nodemon -e js,json,css,md -i build -x \\\"npm run build-pages\\\"\" \"live-server ./build\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiangergou/MarkdownToHtml.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiangergou/MarkdownToHtml/issues"
+  },
+  "homepage": "https://github.com/xiangergou/MarkdownToHtml#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "fs": "0.0.1-security",
+    "fs-extra": "7.0.1",
+    "live-server": "^1.2.1",
+    "markdown-it": "8.4.2",
+    "nodemon": "^1.18.11"
+  }
+}
