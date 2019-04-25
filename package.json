@@ -4,8 +4,8 @@
   "description": "基于Node.js html生成。",
   "main": "index.js",
   "scripts": {
-    "build-pages": "node ./buildScript/index.js",
-    "start": "concurrently --kill-others \"nodemon -e js,json,css,md -i build -x \\\"npm run build-pages\\\"\" \"live-server ./build\"",
+    "build-pages": "node main.js",
+    "start": "concurrently --kill-others \"nodemon -e js,json,css,md -i build -x \\\"npm run build-pages\\\"\" \"live-server ./dist\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

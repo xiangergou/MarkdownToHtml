@@ -1,14 +1,13 @@
 // clean dir-build
 
 const path = require('path');
-var fs = require('fs-extra')
-var pages = './pages';
-var pageTemplate = require('./template');
+const fs = require('fs-extra');
 
-const outputPath = './build';
-var pagesMetaPath = './pages_meta';
-var pagesMeta = {};
-var copyFolders = ['./images', './css', './js'];
+const pages = './pages';
+const pageTemplate = require('./template');
+const outputPath = './dist';
+const pagesMetaPath = './fileConfig';
+const pagesMeta = {};
 
 // fs.readdir(outputPath, (err, files) => {
 //   if (err) throw err;
@@ -51,9 +50,7 @@ for (var pageMeta of fs.readdirSync(pagesMetaPath)) {
 // }
 
 for (var page of fs.readdirSync(pages)) {
-  console.log(page, pages, 'pages')
   var pageName = page.slice(0, page.lastIndexOf('.'));
-  console.log(pageName)
   var metaData = pagesMeta.hasOwnProperty(pageName + '.json')
     ? JSON.parse(pagesMeta[pageName + '.json'])
     : {};
@@ -63,7 +60,4 @@ for (var page of fs.readdirSync(pages)) {
   fs.writeFileSync(
     path.join(outputPath, pageName + '.html'),
     pageTemplate.generatePage(pageContent, metaData));
-}
-for (var copyFolder of copyFolders) {
-  fs.mkdir(path.join(outputPath, copyFolder))
 }
