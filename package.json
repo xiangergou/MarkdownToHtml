@@ -1,7 +1,7 @@
 {
   "name": "markdowntohtml",
   "version": "1.0.0",
-  "description": "基于Node.js html生成。",
+  "description": "基于Node.js markdown实时转换为html",
   "main": "index.js",
   "scripts": {
     "build-pages": "node main.js",
